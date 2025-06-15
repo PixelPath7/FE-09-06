@@ -1,30 +1,29 @@
 import { useState } from "react";
-
-function Clase9() {
-    const [contador, setContador] = useState(0);
+import ampolleta from './assets/Img/ampolleta.png'
+import ampolleta_apa from './assets/Img/ampolleta_apa.png'
 
 function Interruptor() {
-    if (contador === 0){
-        alert('encendido')
-        setContador(1)
+    const [contador, setContador] = useState(0);
+
+    function manejoInterruptor() {
+        if (contador === 0){
+            setContador(1)
+        }
+        else{
+            setContador(0)
+        }
     }
-    else{
-        alert('apagado')
-        setContador(0)
-    }
-}
 
     return (
         <div style={{ textAlign: "center", padding: "20px", border: "1px solid #ccc", borderRadius: "8px" }}>
-            <h2>Contador</h2> 
-            <h3 style={{ fontSize: "2.5rem", margin: "10px 0" }}>{contador}</h3>
+            <h2>Ampolleta</h2> 
+            <img src={contador === 0 ? ampolleta_apa : ampolleta} alt={contador === 0 ? "Ampolleta Apagada" : "Ampolleta Encendida"} 
+                style={{width: "100px", marginBottom: "20px"}}/>
             <div>
-                <button onClick={incrementar} style={{ margin: "5px" }}>Incrementar</button>
-                <button onClick={decrementar} style={{ margin: "5px" }}>Decrementar</button>
-                <button onClick={reiniciar} style={{ margin: "5px" }}>Reiniciar</button>
+                <button onClick={manejoInterruptor} style={{ margin: "5px" }}>{contador === 0 ? "Encender" : "Apagar"}</button>
             </div>
         </div>
     );
 }
 
-export default Contador;
+export default Interruptor;

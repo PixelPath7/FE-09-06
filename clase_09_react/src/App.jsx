@@ -1,11 +1,11 @@
 import './App.css'
-import Contador from './Contador'
+import Interruptor from './Interruptor'
 
 function App() {
 
   return (
     <>
-      <Contador></Contador>
+      <Interruptor></Interruptor>
     </>
   )
 }
